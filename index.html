@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Pastry Store</title>
+</head>
+
+<body>
+  <nav class="bg-violet-500">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"> Pastry Palace </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Our Products</a></li>
+        <li><a href="specialty-orders.html">Specialty Orders</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="parallax-container h-[400px]">
+    <div class="parallax">
+      <img
+        src="https://images.unsplash.com/photo-1597905733802-7bec89b471b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    </div>
+  </div>
+
+  <section class="p-10 text-center">
+    <div class="text-[32px] font-bold">Welcome To Pastry Palace</div>
+
+    <div>
+      <img src="/logo.jpg" class="mx-auto" />
+    </div>
+
+    <div class="text-[20px] mt-5">
+      At Pastry Palce Bakery, we believe in creating memorable moments through delightful desserts. Our dedicated team
+      of bakers is committed to bringing you a taste of happiness with every treat we offer. 🧁👑
+    </div>
+  </section>
+
+  <div class="parallax-container h-[400px]">
+    <div class="parallax">
+      <img
+        src="https://images.unsplash.com/photo-1597528662465-55ece5734101?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    </div>
+  </div>
+
+  <section class="p-10 text-center">
+    <div class="text-[32px] font-bold">Opening Hours</div>
+
+    <div class="text-[20px] mt-5 flex justify-center">
+      <div>
+        <ul id="opening-hours-list" class="w-[400px]">
+          <!-- this part is generated -->
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="parallax-container h-[400px]">
+    <div class="parallax">
+      <img
+        src="https://images.unsplash.com/photo-1530006261244-0ae043004358?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    </div>
+  </div>
+
+  <section class="p-10">
+    <div class="text-[32px] font-bold text-center">Contact Us</div>
+
+    <div class="text-[20px] mt-5 grid grid-cols-[50%_50%]">
+      <div class="row gap-y-5 pr-5">
+        <div class="s12 input-field outlined">
+          <input id="name" type="text" placeholder=" ">
+          <label for="name">Name</label>
+        </div>
+
+        <div class="s12 input-field outlined">
+          <input id="subject" type="text" placeholder=" ">
+          <label for="subject">Subject</label>
+        </div>
+
+        <div class="s12 input-field outlined">
+          <textarea id="message" class="materialize-textarea !min-h-[120px]" placeholder=" "></textarea>
+          <label for="message">Message</label>
+        </div>
+
+        <div class="col s12">
+          <div class="btn-flat text-center waves-effect !bg-violet-500 w-full waves-light white-text">
+            Submit
+          </div>
+        </div>
+      </div>
+      <div class="border-l-2 pl-5">
+        <div>
+          <div class="font-bold">
+            Telephone
+          </div>
+          <span class="text-neutral-500">
+            +1758-732-6456
+          </span>
+        </div>
+
+        <div class="mt-5">
+          <div class="font-bold">
+            Email
+          </div>
+
+          <a href="mailto:pastrypaclace@gmail.com" class="text-neutral-500 underline">
+            pastrypaclace@gmail.com
+          </a>
+
+        </div>
+
+        <div class="mt-5">
+          <div class="font-bold">
+            Location
+          </div>
+          <div class="text-neutral-500">
+            Number 13 Clarke Street
+          </div>
+          <div class="text-neutral-500">
+            Vieux Fort, Saint Lucia
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".parallax");
+    var instances = M.Parallax.init(elems);
+
+    const arr = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    const list = document.getElementById("opening-hours-list");
+
+    arr.forEach((item) => {
+      const el = document.createElement("li");
+      el.classList.add("mb-2");
+      el.classList.add("flex", "justify-between");
+
+      const dayEl = document.createElement("span");
+      dayEl.innerText = item;
+      el.appendChild(dayEl);
+
+      const timeEl = document.createElement("span");
+      timeEl.innerText = "6:00 AM - 9:00 PM";
+      el.appendChild(timeEl);
+
+      list.appendChild(el);
+    });
+  });
+</script>
+
+</html>
